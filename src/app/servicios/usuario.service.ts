@@ -3,9 +3,16 @@ import axios from 'axios';
 
 @Injectable({ providedIn: 'root' })
 export class UsuarioService {
+<<<<<<< HEAD
   async registrarUsuario(nombre_usuario: string, contrasenia: string) {
     const response = await axios.post('http://localhost:3000/usuarios/registro', {
       nombre_usuario,
+=======
+  async registrarUsuario(nombre_usuario: string, email: string, contrasenia: string) {
+    const response = await axios.post('http://localhost:3000/usuarios/registro', {
+      usuario: nombre_usuario,
+      email,
+>>>>>>> recContrasenia
       contrasenia,
     });
     return response.data;
@@ -17,4 +24,21 @@ export class UsuarioService {
     });
     return response.data;
   }
+<<<<<<< HEAD
+=======
+ 
+  async solicitarResetContrasenia(email: string) {
+    const respuesta = await axios.post('http://localhost:3000/usuarios/olvide-contrasenia', { email });
+    return respuesta.data;
+  }
+
+  async resetearContrasenia(token: string, nuevaContrasenia: string) {
+  const respuesta = await axios.post(`http://localhost:3000/usuarios/resetear-contrasenia/${token}`, {
+    nuevaContrasenia
+  });
+  return respuesta.data;
+}
+
+
+>>>>>>> recContrasenia
 }

@@ -11,14 +11,25 @@ import { FormsModule } from '@angular/forms';
 export class RegistroComponent {
   nombre_usuario = '';
   contrasenia = '';
+<<<<<<< HEAD
   usuario_ingreso: string = '';
   pass_ingreso: string = '';
+=======
+  email = '';
+  usuario_ingreso = '';
+  pass_ingreso = '';
+  emailReset = '';
+>>>>>>> recContrasenia
 
   constructor(private usuarioService: UsuarioService) {}
 
   async registrar() {
     try {
+<<<<<<< HEAD
       const respuesta = await this.usuarioService.registrarUsuario(this.nombre_usuario, this.contrasenia);
+=======
+      const respuesta = await this.usuarioService.registrarUsuario(this.nombre_usuario, this.email, this.contrasenia);
+>>>>>>> recContrasenia
       alert(respuesta.mensaje);
     } catch (error: any) {
       alert(error.response?.data?.mensaje || 'Error al registrar usuario');
@@ -37,4 +48,15 @@ export class RegistroComponent {
     }
   }
 
+<<<<<<< HEAD
+=======
+  async solicitarReset() {
+    try {
+      const respuesta = await this.usuarioService.solicitarResetContrasenia(this.emailReset);
+      alert(respuesta.mensaje);
+    } catch (error: any) {
+      alert(error.response?.data?.mensaje || 'Error al solicitar restablecimiento de contraseña');
+    }
+  }
+>>>>>>> recContrasenia
 }
